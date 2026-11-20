@@ -30,4 +30,4 @@ This repository documents my Week 3 practical assignments for the **Cybersecurit
 ```text
 networkwalks-w3-password-cracking-hash-analysis/
 ├── README.md
-└── screenshots/        # Optional: add your lab & verification screenshots here
+└── screenshots/        
