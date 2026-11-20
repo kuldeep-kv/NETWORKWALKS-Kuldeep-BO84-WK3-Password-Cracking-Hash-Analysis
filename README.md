@@ -1,86 +1,33 @@
-# 🔐 Week 3 Milestone: Password Cracking & Hash Analysis
+# Week 3 Milestone: Password Cracking & Hash Analysis (Networkwalks)
 
-![Cybersecurity](https://img.shields.io/badge/Focus-Password%20Cracking%20%26%20Hash%20Analysis-blue)
-![Internship](https://img.shields.io/badge/Internship-Networkwalks-darkgreen)
-![Platform](https://img.shields.io/badge/Environment-Kali%20Linux-blueviolet)
+This repository documents my Week 3 practical assignments for the **Cybersecurity Internship at Networkwalks**, covering password vulnerability assessment, cryptographic hashing, and dictionary-based credential recovery across both CLI and browser-based auditing tools.
 
-This repository documents my **Week 3** practical assignments for the **Cybersecurity Internship at Networkwalks**, focusing on password vulnerability assessment, cryptographic hashing mechanics, and dictionary-based recovery methodologies across CLI and browser-based tools.
+## LinkedIn Milestone Post
+- **Post:** [Week 3 Milestone | Cybersecurity Internship at NETWORKWALKS: Password Cracking & Hash Analysis](https://lnkd.in/p/dwRN6eB8)
+- **Program / Mentorship:** Networkwalks (Waqas Karim, CCIE)
 
----
+## Modules Covered
+- **W3-PM1: Auditing with John the Ripper (JTR)** — Exploring JTR capabilities in a controlled lab environment, examining password hash structure, and running wordlist-driven dictionary recovery attacks.
+- **W3-PM2: Browser-Based Auditing with Networkwalks Tools** — Using the **Networkwalks Hash Calculator** and **Password Cracker** to practice hash generation, PDF hash extraction, and dictionary-based recovery to observe how password length and complexity affect cracking resistance.
 
-## 🔗 LinkedIn Milestone & Program Details
-* **📝 LinkedIn Post:** [Week 3 Milestone | Cybersecurity Internship at NETWORKWALKS: Password Cracking & Hash Analysis](https://lnkd.in/p/dwRN6eB8)
-* **🏢 Organization:** Networkwalks
-* **👨‍🏫 Mentorship:** Waqas Karim (CCIE)
+## Lab Workflow & Notes
 
----
+### 1. W3-PM1 — John the Ripper (CLI Workflow)
+1. **Hash Preparation & Extraction:** Inspect target hash formats or extract crackable hashes from supported files/inputs in the lab environment.
+2. **Dictionary Attack Execution:** Run John the Ripper with a wordlist against extracted hashes to evaluate weak credential exposure.
+3. **Result Analysis:** Review cracked outputs and assess how wordlists and rule sets speed up recovery of predictable passwords.
 
-## 🎯 Lab Objectives & Modules
+### 2. W3-PM2 — Networkwalks Browser Tools
+1. **Hash Calculation & PDF Hash Extraction:** Use the Networkwalks Hash Calculator to generate hashes and extract crackable hash strings from protected PDFs[cite: 1].
+2. **Dictionary Recovery Testing:** Submit extracted hashes into the Networkwalks Dictionary Attack Lab to test wordlist matching and observe how password length and complexity impact attack effort[cite: 2].
 
-| Module | Focus Area | Tools & Methodology |
-| :--- | :--- | :--- |
-| **🔹 W3-PM1** | **Auditing with John the Ripper (JTR)** | CLI hash extraction, hash structure analysis, and wordlist-driven dictionary attacks on Kali Linux. |
-| **🔹 W3-PM2** | **Browser-Based Auditing with Networkwalks Tools** | Hash generation, PDF hash extraction, and dictionary recovery testing via web utilities. |
+## Key Security Takeaways
+- **Hashing vs. Encryption:** One-way cryptographic hashing is distinct from reversible encryption, and hash formats reveal structural clues that attackers target.
+- **Dictionary Attack Mechanics:** Weak, common, or predictable passwords fall quickly to wordlist-based attacks regardless of tool interface[cite: 2].
+- **Credential Hardening:** Strong password policies (sufficient length and complexity) combined with salted hashing are essential for defending stored credentials and protected files.
 
----
-
-## 🛠️ Execution Workflow
-
-### 1️⃣ W3-PM1: Password Auditing with John the Ripper (CLI)
-1. **📥 Hash Extraction:**
-   Convert password-protected files into crackable hash formats:
-   ```bash
-   pdf2john "My Locked PDF1.pdf" > pdf.hash
-
-
-⚡ Dictionary Attack Execution:
-
-1.Run John the Ripper against the extracted hash using a wordlist:
-
-john --wordlist=/usr/share/wordlists/rockyou.txt pdf.hash
-
-2.✅ Credential Verification:
-
-Inspect the cracked password output and validate file access:
-
-john --show pdf.hash
-
-2️⃣ W3-PM2: Browser-Based Auditing with Networkwalks Tools
-🔍 Hash Calculation & PDF Hash Extraction:
-
-Utilized the Networkwalks Hash Calculator to generate cryptographic hashes and parse encrypted PDF files locally.
-
-Extracted a 128-bit $pdf$ hash string (Revision R4, Version V4) compatible with pdf2john and hashcat.
-
-⚔️ Dictionary Recovery Testing:
-
-Submitted the extracted $pdf$ hash into the Networkwalks Dictionary Attack Lab.
-
-Executed a wordlist scan to observe how password length and complexity impact cracking speed, recovering the credential (password1) at iteration 91.
-
-🔓 Decryption & Flag Capture:
-
-Unlocked the target document (My Locked PDF2.pdf) using the recovered password and verified lab completion via the captured flag:
-
-nw{networkwalks_persistence_jtr_270521}
-
-💡 Key Security Takeaways
-🔄 Hashing vs. Encryption: One-way cryptographic hashing is fundamentally distinct from reversible encryption, and hash formats reveal structural metadata that auditing tools leverage.
-
-📖 Dictionary Attack Mechanics: Common, short, or predictable passwords (password1) fail rapidly against optimized wordlists, even when wrapped in 128-bit encryption.
-
-🛡️ Credential Hardening: Enforcing strong password policies (14+ characters with mixed character sets) alongside salted hashing is critical for protecting stored credentials and sensitive files.
-
-📂 Repository Structure
-
+## Repository Structure
+```text
 networkwalks-w3-password-cracking-hash-analysis/
 ├── README.md
-└── screenshots/
-    ├── 01-hash-calculator.png
-    ├── 02-password-cracked.png
-    ├── 03-unlock-prompt.png
-    └── 04-flag-captured.png
-
-
-⚠️ Disclaimer
-All password auditing and hash analysis exercises documented in this repository were conducted strictly within an authorized educational lab environment provided by Networkwalks.
+└── screenshots/        # Optional: add your lab & verification screenshots here
