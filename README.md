@@ -35,12 +35,21 @@ This repository documents my **Week 3** practical assignments for the **Cybersec
 Run John the Ripper against the extracted hash using a wordlist:Bashjohn --wordlist=/usr/share/wordlists/rockyou.txt pdf.hash
 ✅ Credential Verification:
 Inspect the cracked password output and validate file access:Bashjohn --show pdf.hash
-2️⃣ W3-PM2: Browser-Based Auditing with Networkwalks Tools🔍 Hash Calculation & PDF Hash Extraction:Utilized the Networkwalks Hash Calculator to generate cryptographic hashes and parse encrypted PDF files locally.   Extracted a 128-bit $pdf$ hash string (Revision R4, Version V4) compatible with pdf2john and hashcat.   ⚔️ Dictionary Recovery Testing:Submitted the extracted $pdf$ hash into the Networkwalks Dictionary Attack Lab.   Executed a wordlist scan to observe how password length and complexity impact cracking speed, recovering the credential (password1) at iteration 91.   🔓 Decryption & Flag Capture:Unlocked the target document (My Locked PDF2.pdf) using the recovered password and verified lab completion via the captured flag:   Plaintextnw{networkwalks_persistence_jtr_270521}
-💡 Key Security Takeaways🔄 Hashing vs. Encryption: One-way cryptographic hashing is fundamentally distinct from reversible encryption, and hash formats reveal structural metadata that auditing tools leverage.📖 Dictionary Attack Mechanics: Common, short, or predictable passwords (password1) fail rapidly against optimized wordlists, even when wrapped in 128-bit encryption[cite: 1, 2].🛡️ Credential Hardening: Enforcing strong password policies (14+ characters with mixed character sets) alongside salted hashing is critical for protecting stored credentials and sensitive files.📂 Repository StructurePlaintextnetworkwalks-w3-password-cracking-hash-analysis/
+2️⃣ W3-PM2: Browser-Based Auditing with Networkwalks Tools🔍 Hash Calculation & PDF Hash Extraction:Utilized the Networkwalks Hash Calculator to generate cryptographic hashes and parse encrypted PDF files locally.   Extracted a 128-bit $pdf$ hash string (Revision R4, Version V4) compatible with pdf2john and hashcat.  
+⚔️ Dictionary Recovery Testing:Submitted the extracted $pdf$ hash into the Networkwalks Dictionary Attack Lab.   Executed a wordlist scan to observe how password length and complexity impact cracking speed, recovering the credential (password1) at iteration 91.  
+
+🔓 Decryption & Flag Capture:Unlocked the target document (My Locked PDF2.pdf) using the recovered password and verified lab completion via the captured flag:   Plaintextnw{networkwalks_persistence_jtr_270521}
+
+💡 Key Security Takeaways🔄 Hashing vs. Encryption: One-way cryptographic hashing is fundamentally distinct from reversible encryption, and hash formats reveal structural metadata that auditing tools leverage.
+
+📖 Dictionary Attack Mechanics: Common, short, or predictable passwords (password1) fail rapidly against optimized wordlists, even when wrapped in 128-bit encryption[cite: 1, 2].🛡️ Credential Hardening: Enforcing strong password policies (14+ characters with mixed character sets) alongside salted hashing is critical for protecting stored credentials and sensitive files.
+
+📂 Repository StructurePlaintextnetworkwalks-w3-password-cracking-hash-analysis/
 ├── README.md
 └── screenshots/
     ├── 01-hash-calculator.png
     ├── 02-password-cracked.png
     ├── 03-unlock-prompt.png
     └── 04-flag-captured.png
+    
 ⚠️ DisclaimerAll password auditing and hash analysis exercises documented in this repository were conducted strictly within an authorized educational lab environment provided by Networkwalks.
